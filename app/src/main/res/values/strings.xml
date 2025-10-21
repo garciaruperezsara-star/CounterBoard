@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">CounterBoard</string>
+
+    <string name="board">Board</string>
+    <string name="gallery">Gallery</string>
+
+    <string name="new_board">New Board</string>
+    <string name="delete_board">Delete Board</string>
+    <string name="edit_board">Edit Board</string>
+
+    <string name="new_user">Insert User Name</string>
+    <string name="edit_use_name">Edit User Name</string>
+
+    <string name="new_password">Create your password</string>
+    <string name="edit_password">Edit password</string>
+
+    <string name="new_element">New Element</string>
+    <string name="delete_element">Delete Element</string>
+    <string name="edit_element">Edit Element</string>
+
+    <string name="empty_gallery">Empty Gallery</string>
+    <string name="empty_board">Empty Board</string>
+
+    <string name="delete">Delete</string>
+    <string name="delete_text">Do you want to delete</string>
+
+
+
+
+
 </resources>

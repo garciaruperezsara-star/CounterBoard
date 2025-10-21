@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CounterBoard</string>
+
+    <string name="board">Pizarra</string>
+    <string name="gallery">Galeria</string>
+
+    <string name="new_board">Nueva Pizarra</string>
+    <string name="delete_board">Borrar Pizarra</string>
+    <string name="edit_board">Editar Pizarra</string>
+
+    <string name="new_user">Introduzca nombre de usuario</string>
+    <string name="edit_use_name">Editar nombre de uduario</string>
+
+    <string name="new_password">Crea tu contraseña</string>
+    <string name="edit_password">Editar contraseña</string>
+
+    <string name="new_element">Nuevo Elemento</string>
+    <string name="delete_element">Borrar Elemento</string>
+    <string name="edit_element">Editar Elemento</string>
+
+    <string name="empty_gallery">Galeria Vacia</string>
+    <string name="empty_board">Pizarra Vacia</string>
+
+    <string name="delete">Borrar</string>
+    <string name="delete_text">¿Deseas borrar</string>
+    
+</resources>
