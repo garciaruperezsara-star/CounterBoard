@@ -1,24 +1,17 @@
 package com.example.counterboard.activity
 
-import android.content.ContentValues
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.counterboard.R
-import com.example.counterboard.data.Board
-import com.example.counterboard.data.BoardDAO
-import com.example.counterboard.data.Element
-import com.example.counterboard.data.ElementDAO
-import com.example.counterboard.databinding.ActivityMainBinding
-import com.example.counterboard.utils.DataBaseManager
+import com.example.counterboard.databinding.ActivityCreateBoardBinding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class CreateBoardActivity : AppCompatActivity() {
+    lateinit var binding: ActivityCreateBoardBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding= ActivityCreateBoardBinding.inflate((layoutInflater))
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
@@ -27,6 +20,5 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
     }
 }
