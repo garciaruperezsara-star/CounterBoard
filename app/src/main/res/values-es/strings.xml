@@ -24,5 +24,6 @@
 
     <string name="delete">Borrar</string>
     <string name="delete_text">¿Deseas borrar</string>
+    <string name="save">Guardar</string>
     
 </resources>

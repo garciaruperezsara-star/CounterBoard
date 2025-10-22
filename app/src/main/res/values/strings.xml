@@ -23,6 +23,8 @@
 
     <string name="delete">Delete</string>
     <string name="delete_text">Do you want to delete</string>
+    <string name="save">Save</string>
+
 
 
 </resources>

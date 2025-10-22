@@ -6,10 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.counterboard.R
+import com.example.counterboard.data.Board
+import com.example.counterboard.data.BoardDAO
 import com.example.counterboard.databinding.ActivityCreateBoardBinding
 
 class CreateBoardActivity : AppCompatActivity() {
     lateinit var binding: ActivityCreateBoardBinding
+    lateinit var boardDAO: BoardDAO
+    lateinit var board : Board
     override fun onCreate(savedInstanceState: Bundle?) {
         binding= ActivityCreateBoardBinding.inflate((layoutInflater))
         super.onCreate(savedInstanceState)
@@ -19,6 +23,14 @@ class CreateBoardActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        boardDAO = BoardDAO(this)
+        val querty = binding.textField.text
+        binding.saveButton.setOnClickListener {
+            board= Board(-1, querty.toString())
+            boardDAO.insert(board)
+            finish()
+
         }
     }
 }
