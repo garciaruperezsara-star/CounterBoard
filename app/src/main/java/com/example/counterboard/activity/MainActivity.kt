@@ -3,6 +3,7 @@ package com.example.counterboard.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -41,11 +42,14 @@ class MainActivity : AppCompatActivity() {
         boardDAO = BoardDAO(this)
         elementDAO = ElementDAO(this)
 
+        supportActionBar?.setTitle(getString(R.string.gallery))
 
         binding.createButtom?.setOnClickListener {
             val intent = Intent(this, CreateBoardActivity::class.java)
             startActivity(intent)
         }
+
+
         adapter = BoardAdapter(
             items = boardList,
             { position ->
@@ -53,7 +57,6 @@ class MainActivity : AppCompatActivity() {
                 val intent= Intent(this, BoardActivity::class.java)
                 intent.putExtra("BOARD_ID",item.id)
                 startActivity(intent)
-
             },
             { position ->
                 val board = boardList[position]

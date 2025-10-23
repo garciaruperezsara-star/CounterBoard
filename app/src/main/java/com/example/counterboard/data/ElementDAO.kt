@@ -17,11 +17,11 @@ class ElementDAO(val context: Context) {
         db.close()
     }
 
-    fun insert(element: Element, board_id: Int) {
+    fun insert(title: String, boardId: Int?) {
         val values = ContentValues()
-        values.put(Element.COLUMN_TITLE, element.title)
-        values.put(Element.COLUMN_POINTS, element.points)
-        values.put(Element.COLUMN_BOARD, board_id)
+        values.put(Element.COLUMN_TITLE,title)
+        values.put(Element.COLUMN_POINTS, "00")
+        values.put(Element.COLUMN_BOARD, boardId)
         try {
             open()
             val newRowId = db.insert(Element.TABLE_NAME, null, values)
@@ -32,11 +32,12 @@ class ElementDAO(val context: Context) {
             close()
         }
     }
-
-    fun update(element: Element, board_id: Int) {
+//TODO Optimeze for only commit the points by ++
+    fun update(element: Element, points: Int, board_id: Int?) {
         val values = ContentValues()
+        values.put(Element.COLUMN_ID, element.id)
         values.put(Element.COLUMN_TITLE, element.title)
-        values.put(Element.COLUMN_POINTS, element.points)
+        values.put(Element.COLUMN_POINTS, points)
         values.put(Element.COLUMN_BOARD, board_id)
 
         try {
@@ -54,7 +55,6 @@ class ElementDAO(val context: Context) {
     fun delete(id: Int) {
         try {
             open()
-
             // Insert the new row, returning the primary key value of the new row
             val deletedRows = db.delete(Element.TABLE_NAME, "${Element.COLUMN_ID} = $id", null)
             Log.i("DATABASE", "$deletedRows rows deleted in table ${Element.TABLE_NAME}")
@@ -102,11 +102,7 @@ class ElementDAO(val context: Context) {
     }
 
     fun findAllByBoard(board: Board): List<Element> {
-        return findBy("${Element.COLUMN_BOARD} = ${board}")
-    }
-
-    fun findAllByBoardAndDone(board: Int, done: Boolean): List<Element> {
-        return findBy("${Element.COLUMN_BOARD} = ${board} AND ${Element.COLUMN_POINTS} = $done")
+        return findBy("${Element.COLUMN_BOARD} = ${board.id}")
     }
 
     fun findBy(where: String?): List<Element> {

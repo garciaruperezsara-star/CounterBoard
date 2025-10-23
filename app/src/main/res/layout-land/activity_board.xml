@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:theme="@style/BoardOption"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.BoardActivity">
@@ -12,7 +13,7 @@
         android:layout_height="match_parent"
         android:backgroundTint="@color/md_theme_outline"
         app:cardCornerRadius="5dp"
-        app:layout_constraintDimensionRatio="H,3:4"
+        app:layout_constraintDimensionRatio="H,4:6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"

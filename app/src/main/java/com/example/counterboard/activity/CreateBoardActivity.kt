@@ -24,6 +24,8 @@ class CreateBoardActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        supportActionBar?.setTitle(getString(R.string.new_board))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         boardDAO = BoardDAO(this)
         val querty = binding.textField.text
         binding.saveButton.setOnClickListener {

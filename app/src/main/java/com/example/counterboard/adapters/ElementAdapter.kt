@@ -1,5 +1,6 @@
 package com.example.counterelement.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +33,7 @@ class ElementAdapter(
             }
         })
 
-        holder.binding.addElement.setOnClickListener {
+        holder.binding.addPoints.setOnClickListener {
             onAddPointsListener
         }
     }

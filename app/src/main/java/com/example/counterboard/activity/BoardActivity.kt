@@ -1,7 +1,9 @@
 package com.example.counterboard.activity
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,7 @@ import com.example.counterboard.data.ElementDAO
 import com.example.counterboard.databinding.ActivityBoardBinding
 import com.example.counterelement.adapters.ElementAdapter
 import com.google.android.material.snackbar.Snackbar
+
 
 class BoardActivity : AppCompatActivity() {
     lateinit var binding: ActivityBoardBinding
@@ -37,24 +40,54 @@ class BoardActivity : AppCompatActivity() {
             insets
         }
 
-        var boardId = intent.extras?.getString("BOARD_ID")?.toInt()
+        var boardId: Int? = intent.extras?.getInt("BOARD_ID")
 
 
         boardDAO = BoardDAO(this)
         elementDAO = ElementDAO(this)
-
         board = boardDAO.findById(boardId)!!
-        Log.i("board", board.toString())
+
+        binding.boardTitle.text= board.title
+
 
         binding.newElementButtom.setOnClickListener {
+            var querty : String = ""
+            val dialog = AlertDialog.Builder(this)
+            dialog.setTitle(getString(R.string.new_element))
+            val input = EditText(this)
+            dialog.setView(input)
+
+            dialog.setPositiveButton(getString(R.string.save), object : DialogInterface.OnClickListener {
+                override fun onClick(dialog: DialogInterface?, which: Int) {
+                    querty = input.getText().toString()
+                    elementDAO.insert(querty, boardId)
+                    loadData()
+                }
+            })
+            dialog.setNegativeButton(getString(R.string.cancel), object : DialogInterface.OnClickListener {
+                override fun onClick(dialog: DialogInterface, which: Int) {
+                    dialog.cancel()
+                    loadData()
+                }
+            })
+
+            dialog.show()
 
         }
+
         adapter = ElementAdapter(
             items = elementList,
             { position ->
+                //TODO implement dialog for cange name
 
             },
             { position ->
+                val element = elementList[position]
+                var actualPoints= elementList[position].points
+                actualPoints= ++actualPoints
+                Log.i("tag",actualPoints.toString())
+                elementDAO.update(element,actualPoints,boardId)
+                loadData()
 
             },
             { position ->
@@ -75,6 +108,7 @@ class BoardActivity : AppCompatActivity() {
                     .setNegativeButton(getString(R.string.no), null)
                     .create()
                 dialog.show()
+
             }
         )
 
@@ -87,7 +121,9 @@ class BoardActivity : AppCompatActivity() {
     }
 
     fun loadData() {
+        Log.i("Element",board.toString())
         elementList = elementDAO.findAllByBoard(board)
+        Log.i("Element",elementList.toString())
         adapter.updateItems(elementList)
     }
 }

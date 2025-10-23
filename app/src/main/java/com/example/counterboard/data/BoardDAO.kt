@@ -96,6 +96,7 @@ class BoardDAO(val context: Context) {
         } finally {
             close()
         }
+        Log.i("board", board.toString())
         return board
     }
 

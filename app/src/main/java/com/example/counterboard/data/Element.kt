@@ -3,7 +3,7 @@ package com.example.counterboard.data
 data class Element(
     val id: Int,
     var title: String,
-    val points: Int,
+    var points: Int,
     val categoryId: Int
 ) {
     companion object {
