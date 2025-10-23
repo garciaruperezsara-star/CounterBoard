@@ -101,7 +101,7 @@ class ElementDAO(val context: Context) {
         return element
     }
 
-    fun findAllByBoard(board: Int): List<Element> {
+    fun findAllByBoard(board: Board): List<Element> {
         return findBy("${Element.COLUMN_BOARD} = ${board}")
     }
 

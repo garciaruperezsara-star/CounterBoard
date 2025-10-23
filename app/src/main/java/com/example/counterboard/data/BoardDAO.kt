@@ -71,7 +71,7 @@ class BoardDAO(val context: Context) {
         return findBy(null)
     }
 
-    fun findById(id: Int): Board? {
+    fun findById(id: Int?): Board? {
         var board: Board? = null
         val projection = null
         val selection = "${Board.COLUMN_ID} = $id"

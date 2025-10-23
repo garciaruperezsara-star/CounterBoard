@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         }
         boardDAO = BoardDAO(this)
         elementDAO = ElementDAO(this)
+
+
         binding.createButtom?.setOnClickListener {
             val intent = Intent(this, CreateBoardActivity::class.java)
             startActivity(intent)
@@ -47,28 +49,34 @@ class MainActivity : AppCompatActivity() {
         adapter = BoardAdapter(
             items = boardList,
             { position ->
+                val item = boardList[position]
+                val intent= Intent(this, BoardActivity::class.java)
+                intent.putExtra("BOARD_ID",item.id)
+                startActivity(intent)
 
             },
             { position ->
-                val category = boardList[position]
+                val board = boardList[position]
 
                 val dialog = AlertDialog.Builder(this)
-                    .setTitle("Delete")
-                    .setMessage("Sure to delete" + "${board.title}?")
-                    .setPositiveButton("yes") { dialog, which ->
-                        boardDAO.delete(board.id)
+                    .setTitle(getString(R.string.delete))
+                    .setMessage(getString(R.string.delete_text) + "${board.title}?")
+                    .setPositiveButton(getString(R.string.yes)) { dialog, which ->
+                        elementDAO.delete(element.id)
                         loadData()
                         Snackbar.make(
                             binding.root,
-                            "deleting",
+                            getString(R.string.delete),
                             Snackbar.LENGTH_SHORT
                         ).show()
                     }
-                    .setNegativeButton("no", null)
+                    .setNegativeButton(getString(R.string.no), null)
                     .create()
                 dialog.show()
             }
         )
+
+        binding.recyclerView.adapter = adapter
     }
     override fun onResume() {
         super.onResume()

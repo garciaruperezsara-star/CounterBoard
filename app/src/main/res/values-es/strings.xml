@@ -4,6 +4,7 @@
 
     <string name="board">Pizarra</string>
     <string name="gallery">Galeria</string>
+    <string name="element">Elemento</string>
 
     <string name="new_board">Nueva Pizarra</string>
     <string name="delete_board">Borrar Pizarra</string>
@@ -25,5 +26,7 @@
     <string name="delete">Borrar</string>
     <string name="delete_text">¿Deseas borrar</string>
     <string name="save">Guardar</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
     
 </resources>

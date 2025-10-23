@@ -6,5 +6,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.BoardActivity">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/main_board"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/md_theme_outline"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintDimensionRatio="H,3:4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/md_theme_onSecondaryFixed"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="12dp">
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/recyclerView"
+               android:layout_margin="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+               android:orientation="vertical"
+               tools:listitem="@layout/element_board_item"/>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/cardview_light_background"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/main_board"
+       >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cardview_dark_background"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/main_board"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:id="@+id/board_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Board"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+           />
+    </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/new_element_buttom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:text="@string/new_element"/>
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

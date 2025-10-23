@@ -5,8 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.counterboard.data.Board
-import com.example.counterboard.databinding.GalleryBoardItemBinding
-
+import com.example.counterboard.databinding.BoardGalleryItemBinding
 class BoardAdapter(
     var items: List<Board>,
     val onClickListener: (Int) -> Unit,
@@ -15,7 +14,7 @@ class BoardAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoardViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = GalleryBoardItemBinding.inflate(layoutInflater, parent, false)
+        val binding = BoardGalleryItemBinding.inflate(layoutInflater, parent, false)
         return BoardViewHolder(binding)
     }
     override fun onBindViewHolder(holder: BoardViewHolder, position:Int) {
@@ -42,7 +41,7 @@ class BoardAdapter(
     }
 }
 
-class BoardViewHolder(val binding: GalleryBoardItemBinding) :
+class BoardViewHolder(val binding: BoardGalleryItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun render(board: Board) {
