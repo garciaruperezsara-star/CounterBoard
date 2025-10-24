@@ -11,8 +11,7 @@ import com.example.counterboard.databinding.ElementBoardItemBinding
 class ElementAdapter(
     var items: List<Element>,
     val onClickListener: (Int) -> Unit,
-    val onAddPointsListener: (Int) -> Unit,
-    val onDeleteListener: (Int) -> Unit
+    val onEditListener: (Int) -> Unit
 ) : RecyclerView.Adapter<ElementViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ElementViewHolder {
@@ -28,14 +27,11 @@ class ElementAdapter(
         }
         holder.itemView.setOnLongClickListener(object : View.OnLongClickListener {
             override fun onLongClick(v: View?): Boolean {
-                onDeleteListener(position)
+                onEditListener(position)
                 return true
             }
         })
 
-        holder.binding.addPoints.setOnClickListener {
-            onAddPointsListener
-        }
     }
 
     override fun getItemCount(): Int {

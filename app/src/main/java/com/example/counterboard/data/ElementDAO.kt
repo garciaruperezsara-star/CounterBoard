@@ -32,13 +32,12 @@ class ElementDAO(val context: Context) {
             close()
         }
     }
-//TODO Optimeze for only commit the points by ++
-    fun update(element: Element, points: Int, board_id: Int?) {
+    fun update(element: Element) {
         val values = ContentValues()
         values.put(Element.COLUMN_ID, element.id)
         values.put(Element.COLUMN_TITLE, element.title)
-        values.put(Element.COLUMN_POINTS, points)
-        values.put(Element.COLUMN_BOARD, board_id)
+        values.put(Element.COLUMN_POINTS, element.points)
+        values.put(Element.COLUMN_BOARD, element.categoryId)
 
         try {
             open()

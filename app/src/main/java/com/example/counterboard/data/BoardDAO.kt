@@ -40,7 +40,7 @@ class BoardDAO(val context: Context) {
         try {
             open()
             val updatedRows = db.update(
-                Board.COLUMN_TITLE,
+                Board.TABLE_NAME,
                 values,
                 "${Board.COLUMN_ID} = ${board.id}",
                 null
@@ -58,7 +58,7 @@ class BoardDAO(val context: Context) {
             open()
 
             // Insert the new row, returning the primary key value of the new row
-            val deletedRows = db.delete(Board.COLUMN_TITLE, "${Board.COLUMN_ID} = $id", null)
+            val deletedRows = db.delete(Board.TABLE_NAME, "${Board.COLUMN_ID} = $id", null)
             Log.i("DATABASE", "$deletedRows rows deleted in table ${Board.TABLE_NAME}")
         } catch (e: Exception) {
             e.printStackTrace()

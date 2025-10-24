@@ -39,9 +39,10 @@
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
+        android:id="@+id/board_title"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/cardview_light_background"
+        android:backgroundTint="@color/md_theme_surface"
         app:cardCornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +52,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/cardview_dark_background"
+        android:backgroundTint="@color/md_theme_secondary"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,22 +60,73 @@
         android:layout_margin="10dp"
         >
         <TextView
-            android:id="@+id/board_title"
+            android:id="@+id/board_title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Board"
+            android:textColor="@color/md_theme_onSecondary"
             android:layout_gravity="center"
             android:layout_margin="4dp"
            />
     </androidx.cardview.widget.CardView>
-
-        <Button
-            android:id="@+id/new_element_buttom"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="20dp"
-            android:text="@string/new_element"/>
+            android:layout_gravity="top|center"
+            android:orientation="horizontal"
+            android:layout_marginTop="60dp">
+            <Button
+                android:id="@+id/add_buttom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:text="+"
+                android:textColor="@color/md_theme_onPrimary"
+                />
+            <Button
+                android:id="@+id/rest_buttom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_gravity="center"
+                android:text="-"
+                android:textColor="@color/md_theme_onPrimary"/>
+
+            <Button
+                android:id="@+id/delete_buttom"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:drawableTint="@color/md_theme_onError"
+                android:src="@drawable/ic_trash" />
+
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="bottom">
+    <Button
+        android:id="@+id/back_buttom"
+        android:layout_width="50dp"
+        android:backgroundTint="@color/md_theme_tertiary"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        app:icon="@drawable/ic_gallery"
+android:drawableTint="@color/md_theme_onPrimary"
+        />
+    <Button
+        android:id="@+id/new_element_buttom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/md_theme_primary"
+        android:layout_gravity="bottom|center"
+        android:text="@string/new_element"
+        android:textColor="@color/md_theme_onPrimary"/>
+
+</LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

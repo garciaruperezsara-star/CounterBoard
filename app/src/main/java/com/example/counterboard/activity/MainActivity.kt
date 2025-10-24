@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var boardDAO: BoardDAO
     lateinit var elementDAO: ElementDAO
     lateinit var board: Board
-    lateinit var element: Element
-
     var boardList: List<Board> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
         boardDAO = BoardDAO(this)
         elementDAO = ElementDAO(this)
-
-        supportActionBar?.setTitle(getString(R.string.gallery))
 
         binding.createButtom?.setOnClickListener {
             val intent = Intent(this, CreateBoardActivity::class.java)
@@ -60,12 +56,11 @@ class MainActivity : AppCompatActivity() {
             },
             { position ->
                 val board = boardList[position]
-
                 val dialog = AlertDialog.Builder(this)
                     .setTitle(getString(R.string.delete))
-                    .setMessage(getString(R.string.delete_text) + "${board.title}?")
+                    .setMessage(getString(R.string.delete_text) + " ${board.title}?")
                     .setPositiveButton(getString(R.string.yes)) { dialog, which ->
-                        elementDAO.delete(element.id)
+                        boardDAO.delete(board.id)
                         loadData()
                         Snackbar.make(
                             binding.root,

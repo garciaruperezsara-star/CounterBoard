@@ -10,7 +10,8 @@
         android:id="@+id/element_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="30sp"
+        android:textColor="@color/md_theme_secondaryFixed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,20 +21,20 @@
         android:id="@+id/element_points"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:textSize="20sp"
+        android:layout_marginEnd="100dp"
+        android:textSize="30sp"
+        android:textColor="@color/md_theme_secondaryFixed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/add_points"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="00" />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_points"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-    app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_add"
-        android:layout_marginHorizontal="50dp"
-        tools:ignore="MissingConstraints" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/add_points"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:src="@drawable/ic_add"-->
+<!--        android:layout_marginHorizontal="50dp"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

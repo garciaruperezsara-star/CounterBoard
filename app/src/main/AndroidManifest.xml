@@ -14,17 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity
+            android:name=".LogginActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.CreateBoardActivity"
             android:exported="false"
-            android:screenOrientation="userLandscape"   />
+            android:screenOrientation="userLandscape" />
         <activity
             android:name=".activity.BoardActivity"
             android:exported="false"
-            android:screenOrientation="userLandscape"   />
+            android:screenOrientation="userLandscape" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true"
-            android:screenOrientation="userLandscape"  >
+            android:screenOrientation="userLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
