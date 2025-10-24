@@ -10,6 +10,7 @@
     <string name="edit_board">Edit Board</string>
 
     <string name="new_user">Insert User Name</string>
+    <string name="welcome">Hello, please insert username</string>
     <string name="edit_use_name">Edit User Name</string>
 
     <string name="new_password">Create your password</string>
@@ -28,6 +29,7 @@
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="next">Next</string>
 
 
 </resources>

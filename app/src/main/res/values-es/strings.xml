@@ -11,7 +11,8 @@
     <string name="edit_board">Editar Pizarra</string>
 
     <string name="new_user">Introduzca nombre de usuario</string>
-    <string name="edit_use_name">Editar nombre de uduario</string>
+    <string name="welcome">Hola, porfabor introduzca usuario</string>
+    <string name="edit_use_name">Editar nombre de usuario</string>
 
     <string name="new_password">Crea tu contraseña</string>
     <string name="edit_password">Editar contraseña</string>
@@ -29,5 +30,6 @@
     <string name="cancel">Cancelar</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
+    <string name="next">Siguiente</string>
     
 </resources>
