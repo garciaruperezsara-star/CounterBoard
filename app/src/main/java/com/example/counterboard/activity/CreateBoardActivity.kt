@@ -1,6 +1,7 @@
 package com.example.counterboard.activity
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,7 +16,7 @@ class CreateBoardActivity : AppCompatActivity() {
     lateinit var boardDAO: BoardDAO
     lateinit var board : Board
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding= ActivityCreateBoardBinding.inflate((layoutInflater))
+        binding = ActivityCreateBoardBinding.inflate((layoutInflater))
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
@@ -27,12 +28,21 @@ class CreateBoardActivity : AppCompatActivity() {
         supportActionBar?.setTitle(getString(R.string.new_board))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         boardDAO = BoardDAO(this)
-        val querty = binding.textField.text
+        val querty = binding.textInputEditText.editText?.text
         binding.saveButton.setOnClickListener {
-            board= Board(-1, querty.toString())
+            board = Board(-1, querty.toString())
             boardDAO.insert(board)
             finish()
+        }
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
     }
 }

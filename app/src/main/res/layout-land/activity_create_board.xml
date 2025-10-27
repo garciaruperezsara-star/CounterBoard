@@ -7,18 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".activity.CreateBoardActivity">
 
-    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-        android:id="@+id/textField"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputEditText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+
+        app:hintTextColor="@color/md_theme_tertiary"
+        android:textColorHint="@color/md_theme_tertiary"
+        app:boxStrokeColor="@color/md_theme_tertiary"
         android:hint="@string/new_board"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:textColor="@color/md_theme_primary_highContrast"
+        app:cursorColor="@color/md_theme_tertiary"
+
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textColor="@color/md_theme_onPrimary"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/saveButton"

@@ -11,13 +11,19 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.counterboard.R
 import com.example.counterboard.databinding.ActivityLogginBinding
 import androidx.core.content.edit
+import com.example.counterboard.utils.Anime
+import com.example.counterboard.utils.AnimeService
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class LogginActivity : AppCompatActivity() {
-    lateinit var binding : ActivityLogginBinding
-    lateinit var querty : String
+    lateinit var binding: ActivityLogginBinding
+    lateinit var querty: String
+    lateinit var animeList: List<Anime>
     private lateinit var pref: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding= ActivityLogginBinding.inflate(layoutInflater)
+        binding = ActivityLogginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         pref = getSharedPreferences("myPref", MODE_PRIVATE)
         enableEdgeToEdge()
@@ -27,30 +33,33 @@ class LogginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val user= pref.getString("username", "")
-        if (user !=""){
-            val intent= Intent(this, MainActivity::class.java)
+        val user = pref.getString("username", "")
+        if (user != "") {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
         supportActionBar?.hide()
 
+        //getGameList()
+
         binding.nextButton.setOnClickListener {
-            querty= binding.textInputEditText.text.toString()
-            if (querty != " "){
-                val intent= Intent(this, MainActivity::class.java)
+            querty = binding.textInputEditText.editText?.text.toString()
+            if (querty != "") {
+                val intent = Intent(this, MainActivity::class.java)
                 pref.edit {
                     putString("username", querty)
                 }
-                Log.i("username", pref.getString("username","err").toString())
+                Log.i("username", pref.getString("username", "err").toString())
                 Log.i("username", querty)
                 startActivity(intent)
                 finish()
-            }
-            else {
-                binding.textView.text= getString(R.string.welcome_wrong)
+            } else {
+                binding.textView.text = getString(R.string.welcome_wrong)
                 binding.textView.setTextColor(getColor(R.color.md_theme_error))
+                binding.textInputEditText.error = getString(R.string.new_user)
             }
         }
+
     }
 }
