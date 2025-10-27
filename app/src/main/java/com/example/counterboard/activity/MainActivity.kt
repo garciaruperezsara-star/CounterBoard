@@ -1,7 +1,9 @@
 package com.example.counterboard.activity
 
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var boardDAO: BoardDAO
     lateinit var elementDAO: ElementDAO
     lateinit var board: Board
+    lateinit var pref: SharedPreferences
     var boardList: List<Board> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +40,15 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        pref= getSharedPreferences("myPref", Context.MODE_PRIVATE)
+        val username = pref.getString("username", "Gallery")
+        Log.i("username", username.toString())
         boardDAO = BoardDAO(this)
         elementDAO = ElementDAO(this)
 
-        binding.createButtom?.setOnClickListener {
+        supportActionBar?.title= username
+
+        binding.createButtom.setOnClickListener {
             val intent = Intent(this, CreateBoardActivity::class.java)
             startActivity(intent)
         }

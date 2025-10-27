@@ -10,8 +10,9 @@
     <string name="delete_board">Borrar Pizarra</string>
     <string name="edit_board">Editar Pizarra</string>
 
-    <string name="new_user">Introduzca nombre de usuario</string>
-    <string name="welcome">Hola, porfabor introduzca usuario</string>
+    <string name="new_user">Nombre de usuario</string>
+    <string name="welcome">Porfabor introduzca nombre de usuario</string>
+    <string name="welcome_wrong">Nombre de usuario no valido</string>
     <string name="edit_use_name">Editar nombre de usuario</string>
 
     <string name="new_password">Crea tu contraseña</string>

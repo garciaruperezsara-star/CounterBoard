@@ -9,8 +9,9 @@
     <string name="delete_board">Delete Board</string>
     <string name="edit_board">Edit Board</string>
 
-    <string name="new_user">Insert User Name</string>
+    <string name="new_user">User Name</string>
     <string name="welcome">Hello, please insert username</string>
+    <string name="welcome_wrong">Sorry, invalid username</string>
     <string name="edit_use_name">Edit User Name</string>
 
     <string name="new_password">Create your password</string>
